@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="plan">
+
+  <h1>📅 30-Day Bible Reading Plan</h1>
+  <p>Select a day to read the Bible</p>
+
+  <!-- GRID -->
+  <div class="grid">
+  <app-reading-card
+  *ngFor="let item of plans"
+  [day]="item.day"
+  [label]="item.label"
+  [book]="item.book"
+  [start]="item.start"
+  [end]="item.end"
+  (read)="loadVerse($event)">
+</app-reading-card>
+</div>
+
+  <!-- LOADING -->
+  <div *ngIf="loading" class="loading">
+    Loading verses...
+  </div>
+
+  <!-- VERSE DISPLAY -->
+<div *ngIf="verseData" class="verse-box">
+  <h2>{{ verseData.reference }}</h2>
+
+  <p *ngFor="let v of verseData.verses">
+    {{ v.text }}
+  </p>
+
+
+</div>
+
+</div>
+
+<app-footer></app-footer>

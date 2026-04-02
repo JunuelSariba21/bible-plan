@@ -1,0 +1,89 @@
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1100px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 25px;
+  border-radius: 15px;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+
+  z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+  color: white;
+  font-weight: bold;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  margin-left: 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: white;
+}
+
+/* BUTTON */
+.login-btn {
+  background: #f39c12;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+
+    display: none;
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+
+  .links a {
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .links.active {
+    display: flex;
+  }
+}

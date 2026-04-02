@@ -1,0 +1,29 @@
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #f39c12;
+}
+
+.card p {
+  color: #94a3b8;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #f39c12;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}

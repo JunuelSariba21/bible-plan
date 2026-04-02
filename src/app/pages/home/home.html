@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+
+<div class="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>Grow Your Faith Daily 📖</h1>
+        <p>Follow structured Bible reading plans and stay spiritually consistent.</p>
+        <a routerLink="/plan30" class="btn">Start Reading</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSE OF THE DAY -->
+  <section class="verse">
+    <div class="verse-card">
+      <h3>📖 Verse of the Day</h3>
+      <p>"The Lord is my shepherd; I shall not want." — Psalm 23:1</p>
+    </div>
+  </section>
+
+  <!-- TODAY -->
+  <section class="today">
+    <h2>Today's Reading</h2>
+
+    <div class="card highlight">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+        <div class="gradient"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>Day 1</h3>
+        <p>Genesis 1 - 3</p>
+        <button>Mark as Done</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="plans">
+  <h2>Reading Plans</h2>
+
+  <div class="card-container">
+
+    <!-- 30 DAY -->
+    <div class="card" routerLink="/plan30">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65">
+        <div class="gradient"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>📅 30-Day Plan</h3>
+        <p>Finish the Bible in 30 days with a structured schedule.</p>
+      </div>
+    </div>
+
+    <!-- 90 DAY -->
+    <div class="card" routerLink="/plan90">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+        <div class="gradient"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>📖 90-Day Plan</h3>
+        <p>Build a steady habit with a balanced 90-day plan.</p>
+      </div>
+    </div>
+
+    <!-- OLD TESTAMENT -->
+    <div class="card" routerLink="/old-testament">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4">
+        <div class="gradient"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>📜 Old Testament</h3>
+        <p>Focus on the history and teachings of the Old Testament.</p>
+      </div>
+    </div>
+
+    <!-- NEW TESTAMENT -->
+    <div class="card" routerLink="/new-testament">
+      <div class="img-container">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <div class="gradient"></div>
+      </div>
+
+      <div class="card-content">
+        <h3>✝️ New Testament</h3>
+        <p>Learn about Jesus and the early church teachings.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
+<app-footer></app-footer>

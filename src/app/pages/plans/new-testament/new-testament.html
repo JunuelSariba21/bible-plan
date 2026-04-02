@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+
+<div class="plan">
+  <h1>✝️ New Testament Plan</h1>
+
+  <div class="grid">
+    <div *ngFor="let item of plans" class="card">
+      <h3>Day {{ item.day }}</h3>
+      <p>{{ item.label }}</p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

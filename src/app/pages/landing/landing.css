@@ -1,0 +1,109 @@
+/* HERO */
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #1a1a1a, #000);
+  color: white;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* GLOW EFFECT */
+.glow {
+  position: absolute;
+  bottom: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(243,156,18,0.4), transparent);
+  filter: blur(120px);
+}
+
+/* CONTENT */
+.hero-content {
+  max-width: 750px;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+}
+
+/* TITLE */
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.hero {
+  padding-top: 100px; /* space for navbar */
+}
+
+.hero-content h1 span {
+  color: #f39c12;
+}
+
+/* TEXT */
+.hero-content p {
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* BUTTON STYLE */
+.btn {
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* PRIMARY */
+.primary {
+  background: #f39c12;
+  color: white;
+}
+
+.primary:hover {
+  background: #e67e22;
+}
+
+/* SECONDARY */
+.secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.secondary:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}

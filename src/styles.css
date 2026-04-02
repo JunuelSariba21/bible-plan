@@ -1,0 +1,155 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY SETTINGS
+========================= */
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+}
+
+/* REMOVE WHITE SPACE */
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* =========================
+   IMAGES FIX
+========================= */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================
+   LINKS
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   BUTTON DEFAULT
+========================= */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/* =========================
+   SECTION DEFAULT
+========================= */
+section {
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   CONTAINER (OPTIONAL)
+========================= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   SCROLLBAR (OPTIONAL NICE LOOK)
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f39c12;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* =========================
+   TEXT UTILITIES
+========================= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================
+   FLEX UTILITIES (OPTIONAL)
+========================= */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   GRID UTILITIES (OPTIONAL)
+========================= */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+/* =========================
+   CARD DEFAULT STYLE
+========================= */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+/* =========================
+   BUTTON STYLE
+========================= */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f39c12;
+  color: white;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #d68910;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fb;
+}
