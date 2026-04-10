@@ -1,51 +1,131 @@
+/* ==========================================================================
+   LAYOUT & BACKGROUND
+   ========================================================================== */
 .plan {
-  padding: 120px 20px;
-  background: #0f172a;
+  padding: 120px 20px 60px;
+  background: #0f172a; /* Deep dark blue for the app background */
   color: #e2e8f0;
   min-height: 100vh;
-  text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* GRID */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.plan > p {
+  text-align: center;
+  color: #94a3b8;
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   THE GRID (Reading Cards)
+   ========================================================================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto 60px;
 }
 
-/* CARD */
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* BUTTON */
-.card button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: #f39c12;
-  border: none;
-  border-radius: 8px;
-  color: white;
-}
-
-/* VERSE BOX */
+/* ==========================================================================
+   BIBLE READING INTERFACE (The Scrolls)
+   ========================================================================== */
 .verse-box {
-  margin-top: 40px;
-  padding: 20px;
-  background: #1e293b;
-  border-radius: 10px;
-  text-align: left;
+  max-width: 850px;
+  margin: 40px auto;
+  background: #ffffff; /* Paper white background for readability */
+  color: #1a202c;      /* Soft black text for contrast */
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
-/* LOADING */
+/* Decoration to make it look like a book/scroll */
+.verse-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: #f39c12; /* Golden accent on the left border */
+}
+
+.verse-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2d3748;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 20px;
+}
+
+/* ==========================================================================
+   BIBLE TEXT TYPOGRAPHY
+   ========================================================================== */
+.verse-content {
+  font-family: 'Georgia', 'Times New Roman', serif; /* Best fonts for reading */
+  font-size: 1.35rem;
+  line-height: 2; /* Increased spacing between lines */
+  text-align: justify; /* Newspaper style alignment */
+}
+
+.verse-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f39c12; /* Golden verse numbers */
+  vertical-align: super; /* Keeps number at the top of the line */
+  margin-right: 6px;
+  margin-left: 4px;
+}
+
+/* ==========================================================================
+   LOADING & STATE UI
+   ========================================================================== */
 .loading {
-  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2rem;
   color: #f39c12;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+  margin: 40px 0;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .verse-box {
+    padding: 30px 20px;
+    margin: 20px 10px;
+  }
+
+  .verse-box h2 {
+    font-size: 2rem;
+  }
+
+  .verse-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

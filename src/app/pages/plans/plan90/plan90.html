@@ -1,12 +1,43 @@
 <app-navbar></app-navbar>
 
 <div class="plan">
-  <h1>📅 90-Day Plan</h1>
+  <div class="plan-header">
+    <h1>📖 90-Day Spiritual Journey</h1>
+    <p>Consistency is the key to spiritual growth. Follow the daily path below.</p>
+  </div>
 
   <div class="grid">
-    <div *ngFor="let item of plans" class="card">
-      <h3>Day {{ item.day }}</h3>
-      <p>{{ item.label }}</p>
+    <app-reading-card
+      *ngFor="let item of plans"
+      [day]="item.day"
+      [label]="item.label"
+      [book]="item.book"
+      [start]="item.start"
+      [end]="item.end"
+      (read)="loadVerse($event)">
+    </app-reading-card>
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    <div class="scroll-icon">📜</div>
+    <p>Opening the Holy Word...</p>
+  </div>
+
+  <div *ngIf="verseData" class="verse-box">
+    <div class="verse-header">
+      <h2>{{ verseData.reference }}</h2>
+    </div>
+    
+    <div class="verse-content">
+      <span *ngFor="let v of verseData.verses">
+        <span class="verse-num">{{ v.verse }}</span> {{ v.text }}
+      </span>
+    </div>
+
+    <div class="read-actions">
+      <button class="complete-btn" (click)="markProgress()">
+        Complete Day ✅
+      </button>
     </div>
   </div>
 </div>

@@ -1,1 +1,38 @@
-<p>day1 works!</p>
+<app-navbar></app-navbar>
+
+<main class="reading-page">
+  <article class="reader-container">
+    
+    <header class="reader-header">
+      <span class="series-label">Foundation Series</span>
+      <h1>Day {{ dayNum }}: {{ dayTitle }}</h1>
+      <p class="reference">{{ readingRef.label }}</p>
+    </header>
+
+    <div *ngIf="loading" class="loader">
+      <div class="spinner"></div>
+      <p>Opening the Word...</p>
+    </div>
+
+    <section *ngIf="!loading && verseData" class="bible-text-surface">
+      <div class="verses-flow">
+        <span *ngFor="let v of verseData.verses" class="verse-item">
+          <sup class="v-num">{{ v.verse }}</sup> {{ v.text }}
+        </span>
+      </div>
+      
+      <div class="completion-zone">
+        <button class="done-btn" (click)="completeDay()">Mark as Done ✅</button>
+      </div>
+    </section>
+
+    <nav class="reader-nav">
+      <span></span> 
+
+      <a [routerLink]="['/day2']" class="next-link">Next Day: The Fall →</a>
+    </nav>
+
+  </article>
+</main>
+
+<app-footer></app-footer>

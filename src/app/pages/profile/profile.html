@@ -1,1 +1,48 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+
+<div class="profile-page">
+  
+  <header class="profile-card">
+    <div class="avatar">{{ user.name[0] }}</div>
+    <h1>{{ user.name }}</h1>
+    <p class="handle">{{ user.username }}</p>
+    <div class="rank">{{ user.level }}</div>
+  </header>
+
+  <section class="stats-ribbon">
+    <div class="stat-item">
+      <span class="value">{{ streak }}</span>
+      <span class="label">Day Streak</span>
+    </div>
+    <div class="stat-item">
+      <span class="value">{{ totalChapters }}</span>
+      <span class="label">Chapters Read</span>
+    </div>
+    <div class="stat-item">
+      <span class="value">{{ user.joined }}</span>
+      <span class="label">Joined</span>
+    </div>
+  </section>
+
+  <section class="achievements">
+    <h2>Spiritual Milestones</h2>
+    <div class="badge-grid">
+      <div class="badge-card" 
+           *ngFor="let badge of badges" 
+           [class.locked]="!isBadgeEarned(badge.goal)">
+        <div class="badge-icon">{{ badge.icon }}</div>
+        <h3>{{ badge.name }}</h3>
+        <p>{{ badge.desc }}</p>
+        <div class="status-tag" *ngIf="isBadgeEarned(badge.goal)">Completed</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="actions">
+    <button class="btn-outline">Edit Settings</button>
+    <button class="btn-danger">Sign Out</button>
+  </footer>
+
+</div>
+
+<app-footer></app-footer>

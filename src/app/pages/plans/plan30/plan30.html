@@ -26,12 +26,17 @@
   <!-- VERSE DISPLAY -->
 <div *ngIf="verseData" class="verse-box">
   <h2>{{ verseData.reference }}</h2>
+  <div class="verse-content">
+    <span *ngFor="let v of verseData.verses">
+      <span class="verse-num">{{ v.verse }}</span> {{ v.text }}
+    </span>
+  </div>
 
-  <p *ngFor="let v of verseData.verses">
-    {{ v.text }}
-  </p>
-
-
+  <div class="read-actions">
+    <button class="complete-btn" (click)="markProgress()">
+      Check as Completed ✅
+    </button>
+  </div>
 </div>
 
 </div>

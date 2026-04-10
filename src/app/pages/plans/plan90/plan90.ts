@@ -1,22 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BibleService } from '../../../services/bible.service';
+import { ProgressService } from '../../../services/progress.service';
 import { NavbarComponent } from '../../../components/navbar/navbar';
 import { FooterComponent } from '../../../components/footer/footer';
+import { ReadingCardComponent } from '../../../components/reading-card/reading-card';
+import { forkJoin, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-plan90',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ReadingCardComponent],
   templateUrl: './plan90.html',
   styleUrls: ['./plan90.css']
 })
-export class Plan90Component {
+export class Plan90Component implements OnInit {
+  plans: any[] = [];
+  verseData: any = null;
+  loading = false;
+  currentReadingData: any = null;
 
-  plans = [
-    { day: 1, label: 'Genesis 1–2' },
-    { day: 2, label: 'Genesis 3–4' },
-    { day: 3, label: 'Genesis 5–6' },
-    { day: 4, label: 'Genesis 7–8' },
-    { day: 5, label: 'Genesis 9–10' }
-  ];
+  constructor(
+    private bibleService: BibleService,
+    private progressService: ProgressService,
+    private cd: ChangeDetectorRef
+  ) {}
+
+  ngOnInit() {
+    this.plans = this.bibleService.get90DayPlan();
+  }
+
+  loadVerse(data: { book: string; start: number; end: number; label: string }) {
+    this.loading = true;
+    this.verseData = null;
+    this.currentReadingData = data;
+
+    const requests = [];
+    for (let i = data.start; i <= data.end; i++) {
+      requests.push(
+        this.bibleService.getVerse(`${data.book}+${i}`).pipe(
+          catchError(() => of(null))
+        )
+      );
+    }
+
+    forkJoin(requests).subscribe((results: any[]) => {
+      this.verseData = {
+        reference: data.label,
+        verses: results.flatMap(r => r?.verses || [])
+      };
+      this.loading = false;
+      this.cd.detectChanges();
+    });
+  }
+
+  markProgress() {
+    if (this.currentReadingData) {
+      for (let i = this.currentReadingData.start; i <= this.currentReadingData.end; i++) {
+        this.progressService.markAsComplete(this.currentReadingData.book, i);
+      }
+      alert(`Success! Day ${this.currentReadingData.day} marked as completed.`);
+    }
+  }
 }

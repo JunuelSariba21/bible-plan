@@ -1,1 +1,37 @@
-<p>day5 works!</p>
+<app-navbar></app-navbar>
+
+<main class="reading-page">
+  <article class="reader-container">
+    
+    <header class="reader-header">
+      <span class="series-label">Foundation Series</span>
+      <h1>Day {{ dayNum }}: {{ dayTitle }}</h1>
+      <p class="reference">{{ readingRef.label }}</p>
+    </header>
+
+    <div *ngIf="loading" class="loader">
+      <div class="spinner"></div>
+      <p>Finalizing the journey...</p>
+    </div>
+
+    <section *ngIf="!loading && verseData" class="bible-text-surface">
+      <div class="verses-flow">
+        <span *ngFor="let v of verseData.verses" class="verse-item">
+          <sup class="v-num">{{ v.verse }}</sup> {{ v.text }}
+        </span>
+      </div>
+      
+      <div class="completion-zone">
+        <button class="done-btn" (click)="completeDay()">Mark as Done ✅</button>
+      </div>
+    </section>
+
+    <nav class="reader-nav">
+      <a [routerLink]="['/day4']" class="nav-link prev">← Day 4: Nations</a>
+      <a [routerLink]="['/plan30']" class="nav-link finish">View Full 30-Day Plan →</a>
+    </nav>
+
+  </article>
+</main>
+
+<app-footer></app-footer>

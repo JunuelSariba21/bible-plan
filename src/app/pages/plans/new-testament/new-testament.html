@@ -1,12 +1,34 @@
 <app-navbar></app-navbar>
 
-<div class="plan">
-  <h1>✝️ New Testament Plan</h1>
+<div class="plan-container">
+  <div class="intro">
+    <h1>✝️ New Testament</h1>
+    <p>Follow the life of Jesus and the teachings of the Apostles.</p>
+  </div>
 
   <div class="grid">
-    <div *ngFor="let item of plans" class="card">
-      <h3>Day {{ item.day }}</h3>
-      <p>{{ item.label }}</p>
+    <app-reading-card
+      *ngFor="let item of plans"
+      [day]="item.day"
+      [label]="item.label"
+      [book]="item.book"
+      [start]="item.start"
+      [end]="item.end"
+      (read)="loadVerse($event)">
+    </app-reading-card>
+  </div>
+
+  <div *ngIf="loading" class="loader">📖 Opening the Gospels...</div>
+
+  <div *ngIf="verseData" class="reader-surface">
+    <h2>{{ verseData.reference }}</h2>
+    <div class="bible-text">
+      <span *ngFor="let v of verseData.verses">
+        <span class="v-num">{{ v.verse }}</span> {{ v.text }}
+      </span>
+    </div>
+    <div class="actions">
+      <button class="save-btn" (click)="markProgress()">Complete Reading ✅</button>
     </div>
   </div>
 </div>

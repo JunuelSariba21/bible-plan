@@ -1,51 +1,115 @@
 .plan {
-  padding: 120px 20px;
+  padding: 120px 20px 60px;
   background: #0f172a;
-  color: #e2e8f0;
   min-height: 100vh;
-  text-align: center;
+  color: #fff;
 }
 
-/* GRID */
+.plan-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.plan-header h1 {
+  font-size: 2.8rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.plan-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* THE GRID (Adjusted for 90 cards) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
 }
 
-/* CARD */
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* BUTTON */
-.card button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: #f39c12;
-  border: none;
-  border-radius: 8px;
-  color: white;
-}
-
-/* VERSE BOX */
+/* THE BIBLE READER BOX */
 .verse-box {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff; /* Contrast for reading */
+  color: #1e293b;      /* Dark text */
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+  line-height: 2;
+  border-top: 8px solid #f39c12;
+}
+
+.verse-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #334155;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+
+.verse-content {
+  font-family: 'Georgia', serif;
+  font-size: 1.35rem;
+  text-align: justify;
+}
+
+.verse-num {
+  font-size: 0.85rem;
+  color: #f39c12;
+  font-weight: 800;
+  vertical-align: super;
+  margin-right: 5px;
+}
+
+/* ACTIONS */
+.read-actions {
   margin-top: 40px;
-  padding: 20px;
-  background: #1e293b;
-  border-radius: 10px;
-  text-align: left;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 30px;
+}
+
+.complete-btn {
+  background: #f39c12;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 20px rgba(243, 156, 18, 0.4);
+  transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+  background: #27ae60;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(39, 174, 96, 0.4);
 }
 
 /* LOADING */
 .loading {
-  margin-top: 20px;
-  color: #f39c12;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.scroll-icon {
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (max-width: 768px) {
+  .verse-box {
+    padding: 30px 20px;
+  }
 }

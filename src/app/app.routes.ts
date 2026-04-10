@@ -18,6 +18,9 @@ import { Day2Component } from './pages/readings/day2/day2';
 
 import { ProfileComponent } from './pages/profile/profile';
 import { ProgressComponent } from './pages/progress/progress';
+import { Day3Component } from './pages/readings/day3/day3';
+import { Day4Component } from './pages/readings/day4/day4';
+import { Day5Component } from './pages/readings/day5/day5';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -35,6 +38,9 @@ export const routes: Routes = [
 
   { path: 'day1', component: Day1Component },
   { path: 'day2', component: Day2Component },
+  { path: 'day3', component: Day3Component },
+  { path: 'day4', component: Day4Component },
+  { path: 'day5', component: Day5Component },
 
   { path: 'profile', component: ProfileComponent },
   { path: 'progress', component: ProgressComponent }
