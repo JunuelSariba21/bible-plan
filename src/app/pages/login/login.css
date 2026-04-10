@@ -18,6 +18,16 @@
   color: #e2e8f0;
 }
 
+/* Add this to the bottom of login.css */
+.error-box {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  border: 1px solid #e74c3c;
+}
 /* TEXT */
 .auth-card h1 {
   margin-bottom: 10px;

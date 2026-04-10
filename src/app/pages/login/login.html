@@ -6,11 +6,27 @@
     <h1>Welcome Back 👋</h1>
     <p>Login to continue your Bible journey</p>
 
-    <form>
-      <input type="text" placeholder="Username" >
-      <input type="password" placeholder="Password" >
+    <div *ngIf="errorMessage" class="error-box">
+      {{ errorMessage }}
+    </div>
 
-      <button routerLink="/home" type="submit">Login</button>
+    <form (ngSubmit)="onLogin()">
+      <input 
+        type="text" 
+        name="username" 
+        placeholder="Username" 
+        [(ngModel)]="username" 
+        required
+      >
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Password" 
+        [(ngModel)]="password" 
+        required
+      >
+
+      <button type="submit">Login</button>
     </form>
 
     <p class="switch">
